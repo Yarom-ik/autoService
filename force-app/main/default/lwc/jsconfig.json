@@ -5,6 +5,12 @@
         "paths": {
             "c/workType": [
                 "workType/workType.js"
+            ],
+            "c/stepOne": [
+                "stepOne/stepOne.js"
+            ],
+            "c/stepTwo": [
+                "stepTwo/stepTwo.js"
             ]
         }
     },

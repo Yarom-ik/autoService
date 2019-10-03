@@ -1,7 +1,7 @@
 public with sharing class WorkTypeController {
 
     @AuraEnabled
-    public static string saveWorkType(WorkType workType){
+    public static void saveWorkType(WorkType workType){
         try{
             insert workType;
         }

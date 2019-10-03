@@ -1,4 +1,4 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, track, api} from 'lwc';
 
 // Importing Apex Class method
 import saveWorkType from '@salesforce/apex/WorkTypeController.saveWorkType';
@@ -6,30 +6,18 @@ import saveWorkType from '@salesforce/apex/WorkTypeController.saveWorkType';
 // importing to show toast notifictions
 import {ShowToastEvent} from 'lightning/platformShowToastEvent'
 
-//import work type field
-import NAME_FIELD from '@salesforce/schema/WorkType.Name';
-import DESCRIPTION_FIELD from '@salesforce/schema/WorkType.Description';
-import EstimatedDuration_FIELD from '@salesforce/schema/WorkType.EstimatedDuration';
-import DurationType_FIELD from '@salesforce/schema/WorkType.DurationType';
-import ShouldAutoCreateSvcAppt_FIELD from '@salesforce/schema/WorkType.ShouldAutoCreateSvcAppt';
-
 export default class WorkType extends LightningElement {
-    @track error;
-
+    @track error; 
+    
     @track stepOne = true;
-    @track stepTwo = false;
-
-    @track workType = {
-        Name : NAME_FIELD,
-        Description : DESCRIPTION_FIELD,
-        EstimatedDuration : EstimatedDuration_FIELD,
-        DurationType : DurationType_FIELD,
-        houldAutoCreateSvcAppt : ShouldAutoCreateSvcAppt_FIELD
-    };
+    @api stepTwo = false;
+    @track stepThree = false;
+    @track stepFour = false;
 
     nextStep(){
-        this.stepOne = false;
-        this.stepTwo = true;
+            this.stepOne = false;
+            this.stepTwo = true;
+            this.stepThree = false;        
     }
 
     handleSaveWorkType() {
