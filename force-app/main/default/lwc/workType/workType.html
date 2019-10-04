@@ -1,5 +1,5 @@
 <template>
-  <article class="slds-card">
+  <!-- <article class="slds-card">
 
     <template if:true={stepOne}>
       <c-step-one></c-step-one>
@@ -15,5 +15,9 @@
 
     <lightning-button variant="brand" label="Next" title="Next" onclick={nextStep} class="slds-m-left_x-small">
     </lightning-button>
-  </article>
+  </article> -->
+  <lightning-combobox name="durationType" label="Duration Type" value={value} placeholder="-Select-" options={options}
+            onchange={setWorkTypeInput} >
+            </lightning-combobox>
+  
 </template>
