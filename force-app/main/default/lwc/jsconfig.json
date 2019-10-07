@@ -6,11 +6,8 @@
             "c/workType": [
                 "workType/workType.js"
             ],
-            "c/stepThree": [
-                "workType/stepThree/stepThree.js"
-            ],
             "c/stepOne": [
-                "workType/stepOne/stepOne.js"
+                "stepOne/stepOne.js"
             ]
         }
     },

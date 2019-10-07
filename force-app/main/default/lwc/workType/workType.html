@@ -1,23 +1,20 @@
 <template>
-  <!-- <article class="slds-card">
+  <!-- <article class="slds-card"> -->
 
-    <template if:true={stepOne}>
-      <c-step-one></c-step-one>
-    </template>
+  <template if:true={stepOne}>
+    <c-step-one onstepvaluechange={hanldeStepValueChange} onsetworktypeid={hanldeSetWorkTypeId}>
+    </c-step-one>
+  </template>
 
-    <template if:true={stepTwo}>
-      <c-step-two></c-step-two>
-    </template>
+  <template if:true={stepTwo}>
+    <c-step-two onstepvaluechange={hanldeStepValueChange} work-type-id={workTypeId}>
+    </c-step-two>
+  </template>
 
-    <template if:true={stepThree}>
-        <c-step-two></c-step-two>
-      </template>
+  <template if:true={stepThree}>
+    <c-step-three onstepvaluechange={hanldeStepValueChange} select-record-name={workTypeId.Name}
+    select-record-id={workTypeId.id}>
 
-    <lightning-button variant="brand" label="Next" title="Next" onclick={nextStep} class="slds-m-left_x-small">
-    </lightning-button>
-  </article> -->
-  <lightning-combobox name="durationType" label="Duration Type" value={value} placeholder="-Select-" options={options}
-            onchange={setWorkTypeInput} >
-            </lightning-combobox>
-  
+    </c-step-three>
+  </template>
 </template>

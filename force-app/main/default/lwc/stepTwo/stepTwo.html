@@ -1,0 +1,50 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid slds-assistive-text">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        New work type
+                    </h2>
+                </div>
+            </header>
+        </div>
+        <div class="slds-card__body slds-card__body_inner">New Skill Requirement</div>
+        <footer class="slds-card__footer">
+            <!-- <div class="slds-m-around--xx-large"> -->
+            <div class="container-fluid">
+                <div class="form-group">
+                    <lightning-record-edit-form object-api-name="SkillRequirement" onsuccess={handleSuccess}>
+                        <lightning-messages>
+                        </lightning-messages>
+                        <lightning-input-field data-relatedrecordid field-name="RelatedRecordId"
+                            onchange={handleInputFieldChange} value={workTypeId.Id}>
+                        </lightning-input-field>
+                        <lightning-input-field data-relatedrecordid field-name="SkillId"
+                            onchange={handleInputFieldChange}>
+                        </lightning-input-field>
+                        <lightning-input-field field-name="SkillLevel" onchange={handleInputFieldChange}>
+                        </lightning-input-field>
+                        <div class="slds-m-top_medium">
+                            <lightning-button variant="brand" type="submit" name="Next" label="Next">
+                            </lightning-button>
+                        </div>
+                    </lightning-record-edit-form>
+                    <!-- <lightning-input type="number" name="killLevel" label="Skill Level" 
+                        onchange={handleInputFieldChange}
+                        min=1 max=100>
+                    </lightning-input> -->
+                </div>
+
+                <lightning-button variant="brand" label="Next2" title="Next2" onclick={nextStep}
+                    class="slds-m-left_x-small">
+                </lightning-button>
+
+            </div>
+
+
+        </footer>
+    </article>
+
+
+</template>
