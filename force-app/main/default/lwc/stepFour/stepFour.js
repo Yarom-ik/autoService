@@ -1,16 +1,15 @@
 import { LightningElement, track, api } from 'lwc';
 
 import getResults from '@salesforce/apex/WorkTypeController.getResults';
-import saveProductRequired from '@salesforce/apex/WorkTypeController.saveProductRequired';
+import saveProductItem from '@salesforce/apex/WorkTypeController.saveProductItem';
 
 // importing to show toast notifictions
 import { ShowToastEvent } from 'lightning/platformShowToastEvent'
 
-export default class StepThree extends LightningElement {
-
+export default class StepFour extends LightningElement {
     stepValue;
     nextStep() {
-        this.stepValue = 4;
+        this.stepValue = 1;
         // Creates the event with the data.
         const selectedEvent = new CustomEvent("stepvaluechange", {
             detail: this.stepValue
@@ -19,7 +18,7 @@ export default class StepThree extends LightningElement {
         this.dispatchEvent(selectedEvent);
     }
 
-    @api objectName = 'WorkType';
+    @api objectName = 'Product2';
     @api fieldName = 'Name';
     @api selectRecordId;
     @api selectRecordName;
@@ -91,7 +90,7 @@ export default class StepThree extends LightningElement {
     }
 
     //input 222
-    @api objectName2 = 'Product2';
+    @api objectName2 = 'Location';
     @api fieldName2 = 'Name';
     @api selectRecordId2;
     @api selectRecordName2;
@@ -161,21 +160,24 @@ export default class StepThree extends LightningElement {
     @track piskListOptions = [{label : 'Each',
                                 value : 'Each'}];
 
-    productRequired = { 'sobjectType': 'ProductRequired' };
+    productItem = { 'sobjectType': 'ProductItem' };
 
-    setProductInput(event) {
-        if (event.target.name === 'quantityRequired') {
-            this.productRequired.QuantityRequired = event.target.value;
-            // eslint-disable-next-line no-console
-            console.log('productRequired ' + this.productRequired.QuantityRequired);
-        }
+    setProductItemInput(event) {
+        if (event.target.name === 'quantityOnHand') {
+            this.productItem.QuantityOnHand = event.target.value;
+            window.console.log('quantityOnHand ' + this.productItem.QuantityOnHand);
+        }  
         else if (event.target.name === 'quantityUnitOfMeasure') {
-            this.productRequired.QuantityUnitOfMeasure = event.target.value;
-            window.console.log('quantityUnitOfMeasure ' + this.productRequired.QuantityUnitOfMeasure);
-        }        
+            this.productItem.QuantityUnitOfMeasure = event.target.value;
+            window.console.log('quantityUnitOfMeasure ' + this.productItem.QuantityUnitOfMeasure);
+        } 
+        else if (event.target.name === 'serialNumber') {
+            this.productItem.SerialNumber = event.target.value;
+            window.console.log('SerialNumber ' + this.productItem.SerialNumber);
+        }       
     }
 
-    handleSaveProductRequired() {
+    handleSaveProductItem() {
         const allValid = [...this.template.querySelectorAll('lightning-input')]
             .reduce((validSoFar, inputCmp) => {
                 inputCmp.reportValidity();
@@ -186,9 +188,9 @@ export default class StepThree extends LightningElement {
             alert('Please update the invalid form entries and try again.');
             return;
         }
-        this.productRequired.ParentRecordId = this.selectRecordId;
-        this.productRequired.Product2Id = this.selectRecordId2;
-        saveProductRequired({ productRequired: this.productRequired })
+        this.productItem.Product2Id = this.selectRecordId;
+        this.productItem.LocationId = this.selectRecordId2;
+        saveProductItem({ productItem: this.productItem })
             .then(result => {
                 //this.workType = {};
                 if(result === 'ok'){
@@ -196,7 +198,7 @@ export default class StepThree extends LightningElement {
                     // Show success messsage
                     this.dispatchEvent(new ShowToastEvent({
                         title: 'Success!!',
-                        message: 'Product Required Created Successfully!!',
+                        message: 'Product Item Created Successfully!!',
                         variant: 'success'
                     }));
                     this.nextStep();
@@ -206,6 +208,4 @@ export default class StepThree extends LightningElement {
                 this.error = error.message;
             });
     }
-
-
 }

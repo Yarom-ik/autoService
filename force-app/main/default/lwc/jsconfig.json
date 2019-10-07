@@ -3,11 +3,23 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
-            "c/workType": [
-                "workType/workType.js"
+            "c/stepFour": [
+                "stepFour/stepFour.js"
             ],
             "c/stepOne": [
                 "stepOne/stepOne.js"
+            ],
+            "c/stepThree": [
+                "stepThree/stepThree.js"
+            ],
+            "c/stepTwo": [
+                "stepTwo/stepTwo.js"
+            ],
+            "c/workType": [
+                "workType/workType.js"
+            ],
+            "c/workOrder": [
+                "workOrder/workOrder.js"
             ]
         }
     },

@@ -13,8 +13,12 @@
 
   <template if:true={stepThree}>
     <c-step-three onstepvaluechange={hanldeStepValueChange} select-record-name={workTypeId.Name}
-    select-record-id={workTypeId.id}>
-
+    select-record-id={workTypeId.Id}>
     </c-step-three>
   </template>
+
+    <template if:true={stepFour}>
+        <c-step-four onstepvaluechange={hanldeStepValueChange} >
+        </c-step-four>
+    </template>
 </template>
