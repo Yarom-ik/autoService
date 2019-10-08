@@ -15,11 +15,17 @@
             "c/stepTwo": [
                 "stepTwo/stepTwo.js"
             ],
+            "c/workOrder": [
+                "workOrder/workOrder.js"
+            ],
             "c/workType": [
                 "workType/workType.js"
             ],
-            "c/workOrder": [
-                "workOrder/workOrder.js"
+            "c/createWorkOrder": [
+                "createWorkOrder/createWorkOrder.js"
+            ],
+            "c/createWorkOrderLineItem": [
+                "createWorkOrderLineItem/createWorkOrderLineItem.js"
             ]
         }
     },

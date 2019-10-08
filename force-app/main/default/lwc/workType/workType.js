@@ -1,16 +1,5 @@
 import { LightningElement, track, api} from 'lwc';
 
-//import work type field
-// import NAME_FIELD from '@salesforce/schema/WorkType.Name';
-// import DESCRIPTION_FIELD from '@salesforce/schema/WorkType.Description';
-// import EstimatedDuration_FIELD from '@salesforce/schema/WorkType.EstimatedDuration';
-// import DurationType_FIELD from '@salesforce/schema/WorkType.DurationType';
-// import ShouldAutoCreateSvcAppt_FIELD from '@salesforce/schema/WorkType.ShouldAutoCreateSvcAppt';
-
-// import step1 from './stepOne/stepOne.html';
-// import step2 from './stepTwo/stepTwo.html';
-// import step3 from './stepThree/stepThree.html';
-
 export default class WorkType extends LightningElement {
     @track error; 
     
