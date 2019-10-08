@@ -42,23 +42,16 @@ export default class WorkType extends LightningElement {
     }     
 
     hanldeStepValueChange(event) {
-        window.console.log('stepOne = false');
         this.show = event.detail;
         this.showTemplate();
     }
 
     workTypeId;
     hanldeSetWorkTypeId(event) {
-        window.console.log('return value = ' + event.detail);
-        // eslint-disable-next-line no-unused-vars
-        this.workTypeId = event.detail;
         this.workTypeId = JSON.parse(event.detail);
-        window.console.log('return value jbj = ' + typeof (this.workTypeId));
-        window.console.log('return value Name = ' + this.workTypeId.Name);
     }
 
-    
-    @api recordId = '111';
+    //delete this
     @api objectApiName;
     
 }
