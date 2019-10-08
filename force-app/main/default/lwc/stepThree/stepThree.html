@@ -48,8 +48,7 @@
                                             <button
                                                 class="slds-input__icon slds-input__icon_right slds-button slds-button_icon iconheight"
                                                 onclick={resetData}>
-                                                <lightning-icon
-                                                    class="slds-icon slds-icon slds-icon-text-default"
+                                                <lightning-icon class="slds-icon slds-icon slds-icon-text-default"
                                                     icon-name="utility:clear" size="x-small" alternative-text="icon">
                                                 </lightning-icon>
                                                 <span class="slds-assistive-text">Clear</span>
@@ -100,13 +99,8 @@
                         </div>
                     </div>
 
-
                     <!--  input 2 -->
-
-
-
                     <div class="slds-form-element">
-
                         <div class="slds-form-element__control">
                             <div class="slds-combobox_container">
 
@@ -199,7 +193,6 @@
                 <lightning-combobox name="quantityUnitOfMeasure" label="Quantity Unit Of Measure" value={value}
                     placeholder="-Select-" options={piskListOptions} onchange={setProductInput}>
                 </lightning-combobox>
-
             </div>
 
             <div class="slds-p-top_large">
@@ -211,16 +204,6 @@
                     </div>
                 </div>
             </div>
-
-            <lightning-button variant="brand" label="Next2" title="Next2" onclick={nextStep}
-                class="slds-m-left_x-small">
-            </lightning-button>
-
         </footer>
-
-
     </article>
-
-
-
 </template>

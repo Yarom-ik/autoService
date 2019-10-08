@@ -14,9 +14,7 @@ public with sharing class WorkTypeControllerTest {
     }
     @isTest static void saveWorkTypeExceptionTest(){
         WorkType workType = new WorkType();
-        //workType.Name = 'test';
         workType.Description = 'test';
-        //workType.EstimatedDuration = 3;
         workType.DurationType = 'Hours';
         Test.startTest();
         WorkType workType2;

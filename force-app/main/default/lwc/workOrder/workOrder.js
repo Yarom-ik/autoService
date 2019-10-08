@@ -5,21 +5,21 @@ export default class WorkOrder extends LightningElement {
 
     @track createWorkOrder = true;
     @track createWorkOrderLineItem = false;
-    
+
     showTemplate() {
         switch (this.show) {
             case 1:
                 this.createWorkOrder = true;
                 this.createWorkOrderLineItem = false;
                 break;
-            case 2: 
+            case 2:
                 this.createWorkOrder = false;
                 this.createWorkOrderLineItem = true;
                 break;
             default:
                 this.createWorkOrder = true;
         }
-    }     
+    }
 
     hanldeStepValueChange(event) {
         this.show = event.detail;
@@ -28,8 +28,6 @@ export default class WorkOrder extends LightningElement {
 
     workOrderId;
     hanldeSetWorkOrderId(event) {
-        window.console.log('return value = ' + event.detail);
         this.workOrderId = event.detail;
-        window.console.log('return value Name = ' + this.workOrderId);
     }
 }

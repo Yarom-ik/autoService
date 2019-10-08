@@ -23,31 +23,7 @@ export default class StepTwo extends LightningElement {
     this.skillRequirement[event.currentTarget.fieldName] = event.target.value;
   }
 
-  // handlesaveSkillRequirement() {
-
-  //   this.skillRequirement.RelatedRecordId = this.workTypeId;
-  //   saveSkillRequirement({ skillRequirement: this.skillRequirement })
-  //     .then(result => {
-  //       //this.workType = {};
-  //       window.console.log('result ===> ' + result);
-  //       this.workTypeId = result;
-  //       // Show success messsage
-  //       this.dispatchEvent(new ShowToastEvent({
-  //         title: 'Success!!',
-  //         message: 'Skill Requirement Created Successfully!!',
-  //         variant: 'success'
-  //       }));
-  //       this.nextStep();
-  //     })
-  //     .catch(error => {
-  //       this.error = error.message;
-  //     });
-
-  // }
-
-  handleSuccess(event) {
-    window.console.log('good ' + event.detail.id);
-
+  handleSuccess() {
     this.dispatchEvent(new ShowToastEvent({
       title: 'Success!!',
       message: 'Skill Requirement Created Successfully!!',

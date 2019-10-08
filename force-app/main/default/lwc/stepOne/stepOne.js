@@ -20,8 +20,6 @@ export default class StepOne extends LightningElement {
 
     @wire(getPicklistValues, { recordTypeId: '$objectInfo.data.defaultRecordTypeId', fieldApiName: DurationType_FIELD })
     WorkTypePicklistValues({ error, data }) {
-        // eslint-disable-next-line no-console
-        console.log('picklist');
         if (data) {
             this.options = data.values;
         } else if (error) {
@@ -36,8 +34,6 @@ export default class StepOne extends LightningElement {
     setWorkTypeInput(event) {
         if (event.target.name === 'workType') {
             this.workType.Name = event.target.value;
-            // eslint-disable-next-line no-console
-            console.log('workType ' + this.workType.Name);
         }
         else if (event.target.name === 'description') {
             this.workType.Description = event.target.value;
@@ -50,31 +46,29 @@ export default class StepOne extends LightningElement {
         }
         else if (event.target.name === 'shouldAutoCreateSvcAppt') {
             this.workType.ShouldAutoCreateSvcAppt = event.target.checked;
-            window.console.log('houldAutoCreateSvcAppt ' + this.workType.ShouldAutoCreateSvcAppt);
         }
     }
 
     handleSaveWorkType() {
-        // const allValid = [...this.template.querySelectorAll('lightning-input')]
-        //     .reduce((validSoFar, inputCmp) => {
-        //         inputCmp.reportValidity();
-        //         return validSoFar && inputCmp.checkValidity();
-        //     }, true);
-        // const boxValid = [...this.template.querySelectorAll('lightning-combobox')]
-        //     .reduce((validSoFar, inputCmp) => {
-        //         inputCmp.reportValidity();
-        //         return validSoFar && inputCmp.checkValidity();
-        //     }, true);
-        // if (!allValid && !boxValid) {
-        //     // eslint-disable-next-line no-alert
-        //     alert('Please update the invalid form entries and try again.');
-        //     return;
-        // }
+        const allValid = [...this.template.querySelectorAll('lightning-input')]
+            .reduce((validSoFar, inputCmp) => {
+                inputCmp.reportValidity();
+                return validSoFar && inputCmp.checkValidity();
+            }, true);
+        const boxValid = [...this.template.querySelectorAll('lightning-combobox')]
+            .reduce((validSoFar, inputCmp) => {
+                inputCmp.reportValidity();
+                return validSoFar && inputCmp.checkValidity();
+            }, true);
+        if (!allValid && !boxValid) {
+            // eslint-disable-next-line no-alert
+            alert('Please update the invalid form entries and try again.');
+            return;
+        }
         saveWorkType({ workType: this.workType })
             .then(result => {
-                //this.workType = {};
-                window.console.log('result ===> ' + JSON.stringify(result));
-                this.workTypeId =  JSON.stringify(result);
+                this.workType = {};
+                this.workTypeId = JSON.stringify(result);
                 // Show success messsage
                 this.dispatchEvent(new ShowToastEvent({
                     title: 'Success!!',
@@ -84,7 +78,12 @@ export default class StepOne extends LightningElement {
                 this.nextStep();
             })
             .catch(error => {
-                this.error = error.message;
+                // Show error messsage
+                this.dispatchEvent(new ShowToastEvent({
+                    title: 'Error!!',
+                    message: error.message,
+                    variant: 'error'
+                }));
             });
     }
 

@@ -6,7 +6,6 @@
             </div>
         </div>
         <footer class="slds-card__footer">
-            <!-- <div class="slds-m-around--xx-large"> -->
             <div class="container-fluid">
                 <div class="form-group">
                     <lightning-record-edit-form object-api-name="SkillRequirement" onsuccess={handleSuccess}>
@@ -20,32 +19,17 @@
                         </lightning-input-field>
                         <lightning-input-field field-name="SkillLevel" onchange={handleInputFieldChange}>
                         </lightning-input-field>
-                        <!-- <div class="slds-m-top_medium"> -->
-                            <div class="slds-p-top_large">
-                                <div class="slds-clearfix">
-                                    <div class="slds-float_right">
-                                        <lightning-button variant="brand" type="submit" name="Next" label="Next">
-                                        </lightning-button>
-                                    </div>
+                        <div class="slds-p-top_large">
+                            <div class="slds-clearfix">
+                                <div class="slds-float_right">
+                                    <lightning-button variant="brand" type="submit" name="Next" label="Next">
+                                    </lightning-button>
                                 </div>
                             </div>
-                        <!-- </div> -->
+                        </div>
                     </lightning-record-edit-form>
-                    <!-- <lightning-input type="number" name="killLevel" label="Skill Level" 
-                        onchange={handleInputFieldChange}
-                        min=1 max=100>
-                    </lightning-input> -->
                 </div>
-
-                <lightning-button variant="brand" label="Next2" title="Next2" onclick={nextStep}
-                    class="slds-m-left_x-small">
-                </lightning-button>
-
             </div>
-
-
         </footer>
     </article>
-
-
 </template>
